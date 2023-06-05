@@ -1,24 +1,21 @@
-package org.example.Controller;
+package org.example;
 
-import org.example.Model.MenuDAOImpl;
-import org.example.Model.MenuDAOIntrf;
-import org.example.Model.MenuItem;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import org.example.Model.MenuDAOImpl;
+import org.example.Model.MenuDAOIntrf;
+import org.example.Model.MenuItem;
 
 import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -27,10 +24,10 @@ public class MenuController implements Initializable {
     private TableColumn<MenuItem, String> CategoryCol;
 
     @FXML
-    private ComboBox<?> ItemCategory;
+    private ComboBox<String> ItemCategory;
 
     @FXML
-    private TableColumn<MenuItem, String> ItemIdCol;
+    private TableColumn<MenuItem, Integer> ItemIdCol;
 
     @FXML
     private TextField ItemName;
@@ -45,7 +42,7 @@ public class MenuController implements Initializable {
     private TableColumn<MenuItem, String> NameCol;
 
     @FXML
-    private TableColumn<MenuItem, String> PriceCol;
+    private TableColumn<MenuItem, Double> PriceCol;
 
     @FXML
     private ImageView Search;
@@ -93,6 +90,38 @@ public class MenuController implements Initializable {
         }
     }
 
+    public void UpdateItem(){
+        if(!itemId.getText().isEmpty()
+                || !ItemName.getText().isEmpty()
+                || ItemCategory.getSelectionModel().getSelectedItem() != null
+                || !ItemPrice.getText().isEmpty()){
+            int id = Integer.parseInt(itemId.getText());
+            String name = ItemName.getText();
+            String Category = (String) ItemCategory.getSelectionModel().getSelectedItem();
+            double price = Double.parseDouble(ItemPrice.getText());
+            DAO.updateMenuItem(id,name,Category,price);
+            showMenuTable();
+            itemReset();
+        }else {
+            System.out.println("fill all blank fields !!");
+        }
+    }
+
+    public void DeleteItem(){
+        if(!itemId.getText().isEmpty()
+                || !ItemName.getText().isEmpty()
+                || ItemCategory.getSelectionModel().getSelectedItem() != null
+                || !ItemPrice.getText().isEmpty()){
+            int id = Integer.parseInt(itemId.getText());
+
+            DAO.deleteMenuItem(id);
+            showMenuTable();
+            itemReset();
+        }else {
+            System.out.println("fill all blank fields !!");
+        }
+    }
+
     public ObservableList<MenuItem> MenuList(){//Creating Menu list to use it on the showMenuTable function
         ObservableList<MenuItem> listM = FXCollections.observableArrayList();
         try{
@@ -114,12 +143,13 @@ public class MenuController implements Initializable {
     public void showMenuTable(){//to show the Menu Table
         MenuList = MenuList();
 
-        //ItemIdCol.setCellFactory(new PropertyValueFactory<>("Item ID"));
-        //NameCol.setCellFactory(new PropertyValueFactory<>("Name"));
-        //CategoryCol.setCellFactory(new PropertyValueFactory<>("Category"));
-        //PriceCol.setCellFactory(new PropertyValueFactory<>("Price"));
+        ItemIdCol.setCellValueFactory(new PropertyValueFactory<>("ItemId"));
+        NameCol.setCellValueFactory(new PropertyValueFactory<>("ItemName"));
+        CategoryCol.setCellValueFactory(new PropertyValueFactory<>("ItemCategory"));
+        PriceCol.setCellValueFactory(new PropertyValueFactory<>("ItemPrice"));
 
         MenuTable.setItems(MenuList);
+        System.out.println("MenuTableShowed");
     }
 
     public void SelectItem(){//when we select a row on the table it displays on the inputs
@@ -145,18 +175,17 @@ public class MenuController implements Initializable {
     private String[] CategoryList = {"Drinks","Snacks","Desserts","Veggies","steak"};
 
     public void addCategoryList(){//to display the categories on the comobox
-        List<String> Clist = new ArrayList<>();
-        for (String categ : CategoryList){
-            Clist.add(categ);
-        }
+        List<String> Clist = new ArrayList<>(Arrays.asList(CategoryList));
 
-        ObservableList listCat = FXCollections.observableArrayList(Clist);
+        ObservableList<String> listCat = FXCollections.observableArrayList(Clist);
         ItemCategory.setItems(listCat);
     }
 
     public void Search(){
         FilteredList<MenuItem> filter = new FilteredList<>(MenuList, e -> true);
     }
+
+
 
 
 }
