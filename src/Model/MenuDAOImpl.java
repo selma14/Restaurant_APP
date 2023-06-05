@@ -1,9 +1,6 @@
 package Model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class MenuDAOImpl implements MenuDAOIntrf{
     Connection con;
@@ -27,29 +24,29 @@ public class MenuDAOImpl implements MenuDAOIntrf{
     }
 
     @Override
-    public void showMenu() {
+    public ResultSet showMenu() throws SQLException {
         con=DBConnection.createDBConnetion();
         String query="select * from menutable";
-        System.out.println("Item Details :");
-        System.out.println("---------------------------------------------");
+        //System.out.println("Item Details :");
+        //System.out.println("---------------------------------------------");
 
-        System.out.format("%s\t%s\t%s\t%s\n","ID","Name","Category","Price");
-        System.out.println("---------------------------------------------");
-
-        try{
+        //System.out.format("%s\t%s\t%s\t%s\n","ID","Name","Category","Price");
+        //System.out.println("---------------------------------------------");
+        //try{
             Statement stmt=con.createStatement();
             ResultSet result= stmt.executeQuery(query);
-            while (result.next()){
-                System.out.format("%d\t%s\t%s\t%f\n",
-                        result.getInt(1),
-                        result.getString(2),
-                        result.getString(3),
-                        result.getDouble(4));
-                System.out.println("---------------------------------------------");
-            }
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
+            //while (result.next()){
+                //System.out.format("%d\t%s\t%s\t%f\n",
+                  //      result.getInt(1),
+                  //     result.getString(2),
+                  //      result.getString(3),
+                  //      result.getDouble(4));
+                //System.out.println("---------------------------------------------");
+           // }
+       // }catch (Exception ex){
+           // ex.printStackTrace();
+       // }
+        return result;
     }
 
     @Override

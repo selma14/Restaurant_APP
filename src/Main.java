@@ -1,7 +1,3 @@
-package src;
-
-import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,19 +11,17 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws IOException{
+    public void start(Stage stage){
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/menu.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("View/menu.fxml"));
             Scene scene = new Scene(root);
-            String css = this.getClass().getResource("/Styles/styles.css").toExternalForm();
+            String css = this.getClass().getResource("Styles/styles.css").toExternalForm();
             scene.getStylesheets().add(css);
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
-            System.out.println(e.getCause());
             System.out.println(e.getMessage());
         }
-
     }
 
 }
