@@ -1,8 +1,20 @@
-#dashboardbutton{
+#dashboardbutton1,#dashboardbutton2,#dashboardbutton3,#dashboardbutton4{
     -fx-background-color:#274C77;
 }
 
-#dashboardbutton:hover{
+#dashboardbutton1:hover{
+    -fx-background-color:#6096BA;
+}
+
+#dashboardbutton2:hover{
+    -fx-background-color:#6096BA;
+}
+
+#dashboardbutton3:hover{
+    -fx-background-color:#6096BA;
+}
+
+#dashboardbutton4:hover{
     -fx-background-color:#6096BA;
 }
 

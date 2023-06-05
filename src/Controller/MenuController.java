@@ -149,7 +149,7 @@ public class MenuController implements Initializable {
         PriceCol.setCellValueFactory(new PropertyValueFactory<>("ItemPrice"));
 
         MenuTable.setItems(MenuList);
-        System.out.println("MenuTableShowed");
+        System.out.println("MenuTable Updated");
     }
 
     public void SelectItem(){//when we select a row on the table it displays on the inputs

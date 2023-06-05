@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="JarFiles1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/javafx.media.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/javafx.controls.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/javafx.graphics.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/javafx.swing.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/javafx.fxml.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/javafx.web.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/javafx-swt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/mysql-connector-java-5.1.15-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/javafx.base.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -159,21 +159,21 @@
                               <Font name="System Bold" size="13.0" />
                            </font></Label>
                         <ComboBox fx:id="ItemCategory" layoutX="89.0" layoutY="106.0" prefWidth="150.0" />
-                        <Button id="add" fx:id="addItem" layoutX="16.0" layoutY="197.0" mnemonicParsing="false" onAction="#AddItem" prefHeight="34.0" prefWidth="222.0" style="-fx-background-color: #A3CEF1; -fx-border-color: #6096BA;" stylesheets="@styles.css" text="Add Item">
+                        <Button id="add" fx:id="addItem" layoutX="16.0" layoutY="197.0" mnemonicParsing="false" onAction="#AddItem" prefHeight="34.0" prefWidth="222.0" style="-fx-background-color: #A3CEF1; -fx-border-color: #6096BA;" stylesheets="@../Styles/styles.css" text="Add Item">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                        <Button id="edit" fx:id="editItem" layoutX="15.0" layoutY="239.0" mnemonicParsing="false" onAction="#UpdateItem" prefHeight="34.0" prefWidth="222.0" style="-fx-border-color: #6096BA; -fx-background-color: #A3CEF1;" stylesheets="@styles.css" text="Update Item">
+                        <Button id="edit" fx:id="editItem" layoutX="15.0" layoutY="239.0" mnemonicParsing="false" onAction="#UpdateItem" prefHeight="34.0" prefWidth="222.0" style="-fx-border-color: #6096BA; -fx-background-color: #A3CEF1;" stylesheets="@../Styles/styles.css" text="Update Item">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
-                        <Button id="delete" fx:id="deleteItem" layoutX="16.0" layoutY="283.0" mnemonicParsing="false" onAction="#DeleteItem" prefHeight="34.0" prefWidth="222.0" style="-fx-background-color: #ffa987; -fx-border-color: #ffa987;" stylesheets="@styles.css" text="Delete Item">
+                        <Button id="delete" fx:id="deleteItem" layoutX="16.0" layoutY="283.0" mnemonicParsing="false" onAction="#DeleteItem" prefHeight="34.0" prefWidth="222.0" style="-fx-background-color: #ffa987; -fx-border-color: #ffa987;" stylesheets="@../Styles/styles.css" text="Delete Item">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
