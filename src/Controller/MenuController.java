@@ -1,8 +1,10 @@
 package Controller;
 
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -14,10 +16,8 @@ import Model.MenuItem;
 
 import java.net.URL;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.sql.SQLException;
+import java.util.*;
 
 public class MenuController implements Initializable {
     @FXML
@@ -71,6 +71,7 @@ public class MenuController implements Initializable {
     }
 
     public void AddItem(){//clicking Add Item OnAction
+        Alert alert;
         if(!itemId.getText().isEmpty()
                 || !ItemName.getText().isEmpty()
                 || ItemCategory.getSelectionModel().getSelectedItem() != null
@@ -81,10 +82,24 @@ public class MenuController implements Initializable {
             String Category = (String) ItemCategory.getSelectionModel().getSelectedItem();
             double price = Double.parseDouble(ItemPrice.getText());
 
-            DAO.createItem(new MenuItem(id,name,Category,price));
-
-            showMenuTable();
-            itemReset();
+            try {
+                DAO.createItem(new MenuItem(id,name,Category,price));
+                /* alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Message");
+                alert.setHeaderText(null);
+                alert.setContentText(ItemName.getText()+" Was Added Successfully!");
+                alert.showAndWait();*/
+                showMenuTable();
+                itemReset();
+            } catch (SQLException e) {
+                System.out.println("Duplicate entry found for primary key: " + e.getMessage());
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Duplicated ID !");
+                alert.showAndWait();
+                itemReset();
+            }
         }else {
             System.out.println("fill all blank fields !!");
         }
@@ -95,28 +110,56 @@ public class MenuController implements Initializable {
                 || !ItemName.getText().isEmpty()
                 || ItemCategory.getSelectionModel().getSelectedItem() != null
                 || !ItemPrice.getText().isEmpty()){
+
             int id = Integer.parseInt(itemId.getText());
             String name = ItemName.getText();
-            String Category = (String) ItemCategory.getSelectionModel().getSelectedItem();
+            String Category = ItemCategory.getSelectionModel().getSelectedItem();
             double price = Double.parseDouble(ItemPrice.getText());
+
             DAO.updateMenuItem(id,name,Category,price);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Message");
+            alert.setHeaderText(null);
+            alert.setContentText(ItemName.getText()+" Was Updated Successfully!");
+            alert.showAndWait();
             showMenuTable();
             itemReset();
         }else {
             System.out.println("fill all blank fields !!");
+            return;
         }
     }
 
     public void DeleteItem(){
+        Alert alert;
         if(!itemId.getText().isEmpty()
                 || !ItemName.getText().isEmpty()
                 || ItemCategory.getSelectionModel().getSelectedItem() != null
                 || !ItemPrice.getText().isEmpty()){
             int id = Integer.parseInt(itemId.getText());
 
-            DAO.deleteMenuItem(id);
-            showMenuTable();
-            itemReset();
+            alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Cofirmation Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to DELETE Item ID: " + id + "?");
+            // Get the default button types
+            ButtonType buttonTypeYes = ButtonType.YES;
+            ButtonType buttonTypeNo = ButtonType.NO;
+
+            // Set the customized button types
+            alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if (option.isPresent() && option.get() == buttonTypeYes){
+                DAO.deleteMenuItem(id);
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Message");
+                alert.setHeaderText(null);
+                alert.setContentText(ItemName.getText()+" Was Deleted Successfully!");
+                alert.showAndWait();
+                showMenuTable();
+                itemReset();
+            }
         }else {
             System.out.println("fill all blank fields !!");
         }
@@ -140,6 +183,7 @@ public class MenuController implements Initializable {
     }
 
     private ObservableList<MenuItem> MenuList;
+
     public void showMenuTable(){//to show the Menu Table
         MenuList = MenuList();
 
@@ -172,7 +216,7 @@ public class MenuController implements Initializable {
         ItemPrice.setText("");
     }
 
-    private String[] CategoryList = {"Drinks","Snacks","Desserts","Veggies","steak"};
+    private final String[] CategoryList = {"Appetizers","Salads","Entrées","Side Items","Beverages","Soups","Desserts"};
 
     public void addCategoryList(){//to display the categories on the comobox
         List<String> Clist = new ArrayList<>(Arrays.asList(CategoryList));
@@ -181,8 +225,34 @@ public class MenuController implements Initializable {
         ItemCategory.setItems(listCat);
     }
 
-    public void Search(){
+    public void Search(){//Search bar
         FilteredList<MenuItem> filter = new FilteredList<>(MenuList, e -> true);
+        SearchField.textProperty().addListener((observable, oldValue, newValue)->{
+            filter.setPredicate(item ->{
+
+                if(newValue == null || newValue.isEmpty()){
+                    return true;
+                }
+
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (item.getItemName().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                } else if (String.valueOf(item.getItemPrice()).toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (String.valueOf(item.getItemId()).contains(lowerCaseFilter)) {
+                    return true;
+                } else if (item.getItemCategory().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                }else {
+                    return false;
+                }
+
+            });
+        });
+        SortedList<MenuItem> sortedtable = new SortedList<>(filter);
+        sortedtable.comparatorProperty().bind(MenuTable.comparatorProperty());
+        MenuTable.setItems(sortedtable);
     }
 
 

@@ -36,7 +36,7 @@
                         </ImageView>
                     </children>
                 </Pane>
-                <Button fx:id="dashboardbutton" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" stylesheets="@../Styles/styles.css" text="Dashboard" textFill="#e7ecef">
+                <Button fx:id="dashboardbutton1" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" stylesheets="@../Styles/styles.css" text="Dashboard" textFill="#e7ecef">
                     <padding>
                         <Insets left="30.0" />
                     </padding>
@@ -56,7 +56,7 @@
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></Button>
-                <Button fx:id="dashboardbutton" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" stylesheets="@../Styles/styles.css" text="Menu" textFill="#e7ecef">
+                <Button fx:id="dashboardbutton2" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" stylesheets="@../Styles/styles.css" text="Menu" textFill="#e7ecef">
                     <padding>
                         <Insets left="30.0" />
                     </padding>
@@ -76,7 +76,7 @@
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></Button>
-                <Button fx:id="dashboardbutton" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="64.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" stylesheets="@../Styles/styles.css" text="Staff" textFill="#e7ecef">
+                <Button fx:id="dashboardbutton3" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="64.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" stylesheets="@../Styles/styles.css" text="Staff" textFill="#e7ecef">
                     <padding>
                         <Insets left="30.0" />
                     </padding>
@@ -96,7 +96,7 @@
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></Button>
-                <Button fx:id="dashboardbutton" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="118.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" stylesheets="@../Styles/styles.css" text="Logout" textFill="#e7ecef">
+                <Button fx:id="dashboardbutton4" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="118.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" stylesheets="@../Styles/styles.css" text="Logout" textFill="#e7ecef">
                     <padding>
                         <Insets left="30.0" />
                     </padding>
@@ -134,12 +134,12 @@
                                 <TableColumn fx:id="NameCol" prefWidth="71.0" text="Name" />
                                 <TableColumn fx:id="RoleCol" prefWidth="71.0" text="Role" />
                                 <TableColumn fx:id="AgeCol" prefWidth="61.0" text="Age" />
-                        <TableColumn fx:id="PhoneCol" prefWidth="50.0" text="Phone" />
-                        <TableColumn fx:id="AddressCol" prefWidth="62.0" text="Address" />
-                        <TableColumn fx:id="FamilySituationCol" prefWidth="66.0" text="FamilySituation" />
-                        <TableColumn fx:id="ShiftCol" prefWidth="61.0" text="Shift" />
-                        <TableColumn fx:id="EmailCol" prefWidth="59.0" text="Email" />
-                        <TableColumn fx:id="SalaryCol" prefWidth="74.0" text="Salary" />
+                                <TableColumn fx:id="PhoneCol" prefWidth="50.0" text="Phone" />
+                                <TableColumn fx:id="AddressCol" prefWidth="62.0" text="Address" />
+                                <TableColumn fx:id="FamilySituationCol" prefWidth="66.0" text="FamilySituation" />
+                                <TableColumn fx:id="ShiftCol" prefWidth="61.0" text="Shift" />
+                                <TableColumn fx:id="EmailCol" prefWidth="59.0" text="Email" />
+                                <TableColumn fx:id="SalaryCol" prefWidth="74.0" text="Salary" />
                             </columns>
                         </TableView>
                         <Pane prefHeight="432.0" prefWidth="219.0">
@@ -184,43 +184,43 @@
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor></Button>
-                        <TextField fx:id="employeeRole" layoutX="81.0" layoutY="75.0" prefHeight="24.0" prefWidth="112.0" />
-                        <TextField fx:id="employeePhone" layoutX="81.0" layoutY="139.0" prefHeight="24.0" prefWidth="112.0" />
-                        <Label layoutX="17.0" layoutY="142.0" prefHeight="16.0" prefWidth="65.0" text="Phone :">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="employeeAddress" layoutX="81.0" layoutY="171.0" prefHeight="24.0" prefWidth="112.0" />
-                        <Label layoutX="17.0" layoutY="171.0" prefHeight="16.0" prefWidth="65.0" text="Address :">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="employeeFamilySituation" layoutX="80.0" layoutY="204.0" prefHeight="24.0" prefWidth="112.0" />
-                        <Label layoutX="16.0" layoutY="204.0" prefHeight="16.0" prefWidth="65.0" text="FamilySituation ">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="employeeShift" layoutX="80.0" layoutY="240.0" prefHeight="24.0" prefWidth="112.0" />
-                        <Label layoutX="16.0" layoutY="240.0" prefHeight="16.0" prefWidth="65.0" text="Shift :">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="employeeEmail" layoutX="80.0" layoutY="271.0" prefHeight="24.0" prefWidth="112.0" />
-                        <Label layoutX="16.0" layoutY="271.0" prefHeight="16.0" prefWidth="65.0" text="Email :">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="employeeSalary" layoutX="80.0" layoutY="303.0" prefHeight="24.0" prefWidth="112.0" />
-                        <Label layoutX="16.0" layoutY="303.0" prefHeight="16.0" prefWidth="65.0" text="Salary :">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Label>
+                                <TextField fx:id="employeeRole" layoutX="81.0" layoutY="75.0" prefHeight="24.0" prefWidth="112.0" />
+                                <TextField fx:id="employeePhone" layoutX="81.0" layoutY="139.0" prefHeight="24.0" prefWidth="112.0" />
+                                <Label layoutX="17.0" layoutY="142.0" prefHeight="16.0" prefWidth="65.0" text="Phone :">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="employeeAddress" layoutX="81.0" layoutY="171.0" prefHeight="24.0" prefWidth="112.0" />
+                                <Label layoutX="17.0" layoutY="171.0" prefHeight="16.0" prefWidth="65.0" text="Address :">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="employeeFamilySituation" layoutX="80.0" layoutY="204.0" prefHeight="24.0" prefWidth="112.0" />
+                                <Label layoutX="16.0" layoutY="204.0" prefHeight="16.0" prefWidth="65.0" text="FamilySituation ">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="employeeShift" layoutX="80.0" layoutY="240.0" prefHeight="24.0" prefWidth="112.0" />
+                                <Label layoutX="16.0" layoutY="240.0" prefHeight="16.0" prefWidth="65.0" text="Shift :">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="employeeEmail" layoutX="80.0" layoutY="271.0" prefHeight="24.0" prefWidth="112.0" />
+                                <Label layoutX="16.0" layoutY="271.0" prefHeight="16.0" prefWidth="65.0" text="Email :">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="employeeSalary" layoutX="80.0" layoutY="303.0" prefHeight="24.0" prefWidth="112.0" />
+                                <Label layoutX="16.0" layoutY="303.0" prefHeight="16.0" prefWidth="65.0" text="Salary :">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                </Label>
                             </children></Pane>
                     </children>
                 </GridPane>

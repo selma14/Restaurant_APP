@@ -32,10 +32,14 @@ label{
     -fx-font-weight: bold;
 }
 
-#add:hover,#edit:hover{
-    -fx-background-color:#6096BA;
+#addItem:hover{
+    -fx-background-color:#274C77;
 }
 
-#delete:hover{
+#editItem:hover{
+    -fx-background-color:#274C77;
+}
+
+#deleteItem:hover{
     -fx-background-color:#e54b4b;
 }
