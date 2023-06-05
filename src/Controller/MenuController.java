@@ -1,8 +1,8 @@
-package Controller;
+package org.example.Controller;
 
-import Model.MenuDAOImpl;
-import Model.MenuDAOIntrf;
-import Model.MenuItem;
+import org.example.Model.MenuDAOImpl;
+import org.example.Model.MenuDAOIntrf;
+import org.example.Model.MenuItem;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -114,10 +114,10 @@ public class MenuController implements Initializable {
     public void showMenuTable(){//to show the Menu Table
         MenuList = MenuList();
 
-        ItemIdCol.setCellFactory(new PropertyValueFactory<>("Item ID"));
-        NameCol.setCellFactory(new PropertyValueFactory<>("Name"));
-        CategoryCol.setCellFactory(new PropertyValueFactory<>("Category"));
-        PriceCol.setCellFactory(new PropertyValueFactory<>("Price"));
+        //ItemIdCol.setCellFactory(new PropertyValueFactory<>("Item ID"));
+        //NameCol.setCellFactory(new PropertyValueFactory<>("Name"));
+        //CategoryCol.setCellFactory(new PropertyValueFactory<>("Category"));
+        //PriceCol.setCellFactory(new PropertyValueFactory<>("Price"));
 
         MenuTable.setItems(MenuList);
     }
