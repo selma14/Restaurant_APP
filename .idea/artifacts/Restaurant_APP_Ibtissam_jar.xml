@@ -1,0 +1,27 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Restaurant_APP-Ibtissam:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Restaurant_APP_Ibtissam_jar</output-path>
+    <root id="archive" name="Restaurant_APP-Ibtissam.jar">
+      <element id="module-output" name="Restaurant_APP-Ibtissam" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/JarFiles/javafx-base-20-linux.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/JarFiles/javafx-base-20.0.1-linux.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/JarFiles/javafx-controls-20-linux.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/JarFiles/javafx-fxml-20-linux.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/JarFiles/javafx-graphics-20.0.1-linux.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/JarFiles/javafx-swt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/JarFiles/javafx.media.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/JarFiles/javafx.swing.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/JarFiles/javafx.web.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/JarFiles/mysql-connector-java-5.1.15-bin.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/javafx.media.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/javafx.controls.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/javafx.graphics.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/javafx.swing.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/javafx.fxml.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/javafx.web.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/javafx-swt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/mysql-connector-java-5.1.15-bin.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/out/production/Restaurant_APP/JarFiles/javafx.base.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
