@@ -1,15 +1,26 @@
 package Controller;
 
 import Model.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class EmployeeController implements Initializable {
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
     @FXML
     private TableColumn<?, ?> AddressCol;
 
@@ -102,8 +113,9 @@ public class EmployeeController implements Initializable {
         showEmployeeTable();
          */
     }
-    public void addEmployee(){
-        if(!employeeId.getText().isEmpty()
+
+    public void addEmployee() {
+        if (!employeeId.getText().isEmpty()
                 || !employeeName.getText().isEmpty()
                 || !employeeRole.getText().isEmpty()
                 || !employeeAge.getText().isEmpty()
@@ -112,7 +124,7 @@ public class EmployeeController implements Initializable {
                 || !employeeFamilySituation.getText().isEmpty()
                 || !employeeShift.getText().isEmpty()
                 || !employeeEmail.getText().isEmpty()
-                || !employeeSalary.getText().isEmpty()){
+                || !employeeSalary.getText().isEmpty()) {
             int id = Integer.parseInt(employeeId.getText());
             String name = employeeName.getText();
             String role = employeeRole.getText();
@@ -125,14 +137,14 @@ public class EmployeeController implements Initializable {
             float salary = Float.parseFloat(employeeSalary.getText());
 
 
-            DAO.createEmployee(new Employee( id,  age,  phone,  salary,  name,  role,  address,  shift,  familySituation,  email));
+            DAO.createEmployee(new Employee(id, age, phone, salary, name, role, address, shift, familySituation, email));
             employeeReset();
-        }
-        else {
+        } else {
             System.out.println("fill all blank fields !!");
         }
     }
-    public void employeeReset(){//to empty the inputs
+
+    public void employeeReset() {//to empty the inputs
         employeeId.setText("");
         employeeName.setText("");
         employeeRole.setText("");
@@ -145,4 +157,36 @@ public class EmployeeController implements Initializable {
         employeeSalary.setText("");
     }
 
+    public void SwitchToMenu(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("../View/menu.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        String css = this.getClass().getResource("../Styles/styles.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void logout(ActionEvent event) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Message");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure you want to logout?");
+        ButtonType buttonTypeYes = ButtonType.YES;
+        ButtonType buttonTypeNo = ButtonType.NO;
+        alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+        Optional<ButtonType> option = alert.showAndWait();
+        if (option.isPresent() && option.get() == buttonTypeYes) {
+            root = FXMLLoader.load(getClass().getResource("../View/employee.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            String css = this.getClass().getResource("../Styles/styles.css").toExternalForm();
+            scene.getStylesheets().add(css);
+            stage.setScene(scene);
+            stage.show();
+        } else {
+            return;
+        }
+
+    }
 }

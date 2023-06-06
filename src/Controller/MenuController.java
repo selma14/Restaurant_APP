@@ -5,21 +5,31 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import Model.MenuDAOImpl;
 import Model.MenuDAOIntrf;
 import Model.MenuItem;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
 public class MenuController implements Initializable {
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
     @FXML
     private TableColumn<MenuItem, String> CategoryCol;
 
@@ -146,7 +156,6 @@ public class MenuController implements Initializable {
             ButtonType buttonTypeYes = ButtonType.YES;
             ButtonType buttonTypeNo = ButtonType.NO;
 
-            // Set the customized button types
             alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
             Optional<ButtonType> option = alert.showAndWait();
 
@@ -253,6 +262,39 @@ public class MenuController implements Initializable {
         SortedList<MenuItem> sortedtable = new SortedList<>(filter);
         sortedtable.comparatorProperty().bind(MenuTable.comparatorProperty());
         MenuTable.setItems(sortedtable);
+    }
+
+    public void SwitchToStaff(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("../View/employee.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        String css = this.getClass().getResource("../Styles/styles.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void logout(ActionEvent event) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Message");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure you want to logout?");
+        ButtonType buttonTypeYes = ButtonType.YES;
+        ButtonType buttonTypeNo = ButtonType.NO;
+        alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+        Optional<ButtonType> option = alert.showAndWait();
+        if (option.isPresent() && option.get() == buttonTypeYes){
+            root = FXMLLoader.load(getClass().getResource("../View/employee.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            String css = this.getClass().getResource("../Styles/styles.css").toExternalForm();
+            scene.getStylesheets().add(css);
+            stage.setScene(scene);
+            stage.show();
+        }else {
+            return;
+        }
+
     }
 
 
