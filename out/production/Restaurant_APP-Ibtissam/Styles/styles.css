@@ -1,0 +1,45 @@
+#dashboardbutton1,#dashboardbutton2,#dashboardbutton3,#dashboardbutton4{
+    -fx-background-color:#274C77;
+}
+
+#dashboardbutton1:hover{
+    -fx-background-color:#6096BA;
+}
+
+#dashboardbutton2:hover{
+    -fx-background-color:#6096BA;
+}
+
+#dashboardbutton3:hover{
+    -fx-background-color:#6096BA;
+}
+
+#dashboardbutton4:hover{
+    -fx-background-color:#6096BA;
+}
+
+#logo{
+    -fx-text-fill: #F0EBD8;
+    -fx-font-weight: bold;
+}
+
+.table-view .column-header{
+    -fx-background-color:#6096BA;
+    -fx-text-fill: white;
+}
+
+label{
+    -fx-font-weight: bold;
+}
+
+#addItem:hover{
+    -fx-background-color:#274C77;
+}
+
+#editItem:hover{
+    -fx-background-color:#274C77;
+}
+
+#deleteItem:hover{
+    -fx-background-color:#e54b4b;
+}
