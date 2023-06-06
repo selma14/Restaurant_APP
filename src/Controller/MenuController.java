@@ -296,6 +296,15 @@ public class MenuController implements Initializable {
         }
 
     }
+    public void SwitchToDashboard(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("../View/dashboard.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        String css = this.getClass().getResource("../Styles/styles.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 
 

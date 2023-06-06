@@ -13,7 +13,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage){
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("View/menu.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("View/dashboard.fxml"));
             Scene scene = new Scene(root);
             String css = this.getClass().getResource("Styles/styles.css").toExternalForm();
             scene.getStylesheets().add(css);
