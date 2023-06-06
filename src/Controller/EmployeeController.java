@@ -187,7 +187,7 @@ public class EmployeeController implements Initializable {
         alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
         Optional<ButtonType> option = alert.showAndWait();
         if (option.isPresent() && option.get() == buttonTypeYes) {
-            root = FXMLLoader.load(getClass().getResource("../View/employee.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../View/loginView.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             String css = this.getClass().getResource("../Styles/styles.css").toExternalForm();
